@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 3 - Smart Student Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Student Result Portal</h2>
+      <p>Control Flow & Interactive Logic</p>
+    </div>
+
+    <!-- User Input Section -->
+    <div style="margin-bottom: 15px;">
+      <input type="text" id="name-input" placeholder="Enter Name" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 6px;">
+      <input type="number" id="marks-input" placeholder="Enter Marks (0-100)" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 6px;">
+      <button id="calc-btn" style="width: 100%; padding: 10px; background: #6366f1; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Calculate Result</button>
+    </div>
+
+    <div class="card-body">
+      <div class="info-row">
+        <span>Student Name:</span>
+        <strong id="student-name">-</strong>
+      </div>
+      <div class="info-row">
+        <span>Total Marks:</span>
+        <strong id="marks">-</strong>
+      </div>
+      <div class="info-row">
+        <span>Grade (if/else):</span>
+        <strong id="grade-result">-</strong>
+      </div>
+      <div class="info-row">
+        <span>Remarks (switch):</span>
+        <strong id="remarks-result">-</strong>
+      </div>
+      <div class="info-row">
+        <span>Fee Status (Ternary & Nullish):</span>
+        <strong id="fee-status">-</strong>
+      </div>
+
+      <div class="loop-section">
+        <h3>Subject Progress (For Loop):</h3>
+        <ul id="subject-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="first.js"></script>
+</body>
+</html>
