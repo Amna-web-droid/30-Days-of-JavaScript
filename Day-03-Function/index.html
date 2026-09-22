@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 3 - Realistic Function Utility Engine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="badge">Day 03</div>
+      <h2>Function Engine</h2>
+      <p>Reusable Operations & Logic</p>
+    </div>
+
+    <!-- Section 1: Temperature Converter -->
+    <div class="tool-section">
+      <div class="section-title">
+        <span>01</span>
+        <h3>Temp Converter</h3>
+      </div>
+      <div class="input-group">
+        <input type="number" id="celsius-input" placeholder="Celsius (°C)">
+        <button onclick="runTempConverter()">Convert</button>
+      </div>
+      <div class="result-box">
+        <span class="label">Result:</span>
+        <span class="value" id="temp-result">-</span>
+      </div>
+    </div>
+
+    <!-- Section 2: Smart Discount Calculator -->
+    <div class="tool-section">
+      <div class="section-title">
+        <span>02</span>
+        <h3>Discount Calculator</h3>
+      </div>
+      <div class="input-group vertical">
+        <input type="number" id="price-input" placeholder="Price ($)">
+        <input type="number" id="discount-input" placeholder="Discount % (Default 10%)">
+      </div>
+      <button onclick="runDiscountCalc()" class="full-btn">Calculate Final Price</button>
+      <div class="result-box">
+        <span class="label">Final Price:</span>
+        <span class="value" id="discount-result">-</span>
+      </div>
+    </div>
+
+    <!-- Section 3: Number Inspector -->
+    <div class="tool-section">
+      <div class="section-title">
+        <span>03</span>
+        <h3>Number Inspector</h3>
+      </div>
+      <div class="input-group">
+        <input type="number" id="num-input" placeholder="Enter Any Number">
+        <button onclick="runInspector()">Inspect</button>
+      </div>
+      <div class="result-box">
+        <span class="label">Analysis:</span>
+        <span class="value" id="inspector-result">-</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
