@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 04 -Aesthetic Math Grid Diary</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+</head>
+<body data-mode="light" data-theme="rose">
+
+  <div class="app-container">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <span class="sparkle-icon">📐</span>
+          <h2>Grid Diary</h2>
+        </div>
+        <button class="new-entry-btn" onclick="prepareNewNote()">
+          <span>+</span> New Note
+        </button>
+      </div>
+
+      <!-- Controls -->
+      <div class="sidebar-controls">
+        <input type="text" id="search-input" placeholder="🔍 Search notes..." oninput="searchNotes()">
+        <input type="date" id="calendar-picker" onchange="filterByDate()">
+      </div>
+
+      <!-- Notes History -->
+      <div class="history-label">RECENT ENTRIES</div>
+      <div class="notes-list" id="notes-list"></div>
+
+      <!-- Bottom Controls: Mode & Color Accent -->
+      <div class="sidebar-footer">
+        <button class="mode-toggle-btn" onclick="toggleMode()">
+          <span id="mode-icon">🌙</span> <span id="mode-text">Dark Mode</span>
+        </button>
+        <div class="theme-dots">
+          <span class="dot rose" title="Rose" onclick="setTheme('rose')"></span>
+          <span class="dot lavender" title="Lavender" onclick="setTheme('lavender')"></span>
+          <span class="dot sage" title="Sage" onclick="setTheme('sage')"></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Workspace Area (Math Register Grid Page) -->
+    <main class="workspace grid-paper">
+      <div class="editor-content">
+        <div class="top-meta">
+          <span class="timestamp-tag" id="entry-timestamp">Wednesday, Sep 23, 2026</span>
+        </div>
+
+        <input type="text" id="note-title" placeholder="Title your thought..." autocomplete="off">
+        
+        <textarea id="note-content" placeholder="Start typing on math grid..."></textarea>
+
+        <div class="bottom-actions">
+          <button class="btn-delete" id="delete-btn" onclick="deleteCurrentNote()">Delete</button>
+          <button class="btn-save" onclick="saveCurrentNote()">Save Entry</button>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

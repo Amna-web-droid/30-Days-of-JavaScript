@@ -1,0 +1,336 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Theme Accent Definitions */
+body[data-theme="rose"] {
+  --accent-color: #f43f5e;
+  --accent-hover: #e11d48;
+  --accent-light: rgba(244, 63, 94, 0.15);
+}
+
+body[data-theme="lavender"] {
+  --accent-color: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-light: rgba(139, 92, 246, 0.15);
+}
+
+body[data-theme="sage"] {
+  --accent-color: #10b981;
+  --accent-hover: #059669;
+  --accent-light: rgba(16, 185, 129, 0.15);
+}
+
+/* Base Light Theme */
+body[data-mode="light"] {
+  --bg-main: #f8fafc;
+  --sidebar-bg: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --placeholder-color: #94a3b8;
+  --border-color: #e2e8f0;
+  --grid-line: rgba(148, 163, 184, 0.18); /* Crisp math grid */
+  --input-bg: #f1f5f9;
+  --card-bg: #ffffff;
+}
+
+/* Base Dark Theme (Completely Fixed) */
+body[data-mode="dark"] {
+  --bg-main: #090d16;
+  --sidebar-bg: #111827;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --placeholder-color: #6b7280;
+  --border-color: #1f2937;
+  --grid-line: rgba(255, 255, 255, 0.07); /* Dark math grid */
+  --input-bg: #1f2937;
+  --card-bg: #1f2937;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 16px;
+  z-index: 10;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.brand h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.new-entry-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.new-entry-btn:hover {
+  background: var(--accent-hover);
+}
+
+.sidebar-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-controls input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 12px;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.sidebar-controls input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.sidebar-controls input:focus {
+  border-color: var(--accent-color);
+}
+
+.history-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.note-item {
+  padding: 10px 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.note-item:hover, .note-item.active {
+  border-color: var(--accent-color);
+  background: var(--accent-light);
+}
+
+.note-item h4 {
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item span {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.mode-toggle-btn {
+  width: 100%;
+  padding: 8px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.mode-toggle-btn:hover {
+  border-color: var(--accent-color);
+}
+
+.theme-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+.dot.rose { background: #f43f5e; }
+.dot.lavender { background: #8b5cf6; }
+.dot.sage { background: #10b981; }
+
+body[data-theme="rose"] .dot.rose,
+body[data-theme="lavender"] .dot.lavender,
+body[data-theme="sage"] .dot.sage {
+  border-color: var(--text-primary);
+}
+
+/* Math Register Grid Workspace */
+.workspace {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+  background-image: 
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  transition: background 0.3s ease;
+}
+
+.editor-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px 60px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.timestamp-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-color);
+  background: var(--sidebar-bg);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}
+
+#note-title {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#note-title::placeholder {
+  color: var(--placeholder-color);
+}
+
+#note-content {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-primary);
+}
+
+#note-content::placeholder {
+  color: var(--placeholder-color);
+}
+
+.bottom-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.btn-save {
+  padding: 10px 24px;
+  background: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-save:hover {
+  background: var(--accent-hover);
+}
+
+.btn-delete {
+  padding: 10px 18px;
+  background: rgba(225, 29, 72, 0.15);
+  color: #f43f5e;
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+}
